@@ -278,18 +278,11 @@ def ex14():
 def ex15(wordList):
     from collections import Counter
     counts = Counter(wordList)
-    countts = dict(counts)
+    counts = dict(counts)
     return counts
     cntword(wordList)
     selection()
 
-def ex16(wordlist):
-    wordfreq = [wordlist.count(p) for p in wordlist]
-    print(list(zip(wordlist, wordfreq)))
-    return dict(zip(wordlist, wordfreq))
-    selection()
-def ex15():
-    selection()
 # Main menu function
 def menu():
     items = {}
@@ -302,7 +295,6 @@ def menu():
     for i in range(3, 0, -1):
         try:
             select = input("\nWhich exercise would you like to run? Select (1-15) or press 'e' to exit: ")
-
             if select == 'e':
                 print('Thank You!')
                 sys.exit()
@@ -314,12 +306,10 @@ def menu():
                     continue
                 else:
                     print("You're out of attempts. Come back later.")
-
             sys.exit()
 
         except Exception as Error:
             if i - 1 > 0:
-                #print(Error)
                 print("Invalid input. You have", i - 1, 'more attempt(s).')
                 continue
             else:
