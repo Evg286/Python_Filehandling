@@ -11,7 +11,7 @@ def selection():
             menu()
         elif select == 'e':
             print('Thank You!')
-            break#sys.exit()
+            break
         else:
             if i - 1 > 0:
                 print("Invalid input. You have", i - 1, 'more attempt(s).')
@@ -104,7 +104,6 @@ def ex5():
     os.remove('ex_5.txt')
     selection()
 
-# readfile = open(read.file.txt)
 
 # Write a Python program to read a file line by line store it into a variable.
 def ex6():
@@ -195,94 +194,6 @@ def ex9():
     selection()
 
 
-# Write a Python program to count the frequency of words in a file.
-def ex10():
-    lst_1 = []
-    lst_2 = []
-    freq_dict = {}
-
-    for word in open('ex_10.txt').read().split():
-        word = word.strip().lower()
-        lst_1.append(word)
-
-    lst_1.sort()
-
-    for word in lst_1:
-        if word not in lst_2:
-            lst_2.append(word)
-            freq_dict.update({word: 0})
-
-    # print(lst_2)
-    for word in lst_1:
-        if word in lst_2:
-            freq_dict[word] += 1
-
-    print('lst_1:\n', lst_1)
-    print('lst_2:\n', lst_2)
-    print('lst_1 length: ', len(lst_1))
-    print('lst_2 length: ', len(lst_2))
-    print(freq_dict)
-
-    selection()
-
-
-# Write a Python program to get the file size of a plain file.
-def ex11():
-    size = os.stat("ex_11.txt").st_size
-    print('File size:', size, 'bytes.')
-
-    selection()
-
-
-# Write a Python program to write a list to a file.
-def ex12():
-    with open('ex_12.txt', "a+") as myfile:
-        lst = ['Item_' + str(i + 1) for i in range(10)]
-        print('\nList:', lst)
-        for i in lst:
-            myfile.write(str(i)+', ')
-
-
-    with open('ex_12.txt') as myfile:
-        content = (myfile.read())
-        print('File content:', content)
-        print('Content length: ', len(content))
-        size = os.stat("ex_12.txt").st_size
-        print('File size:', size, 'bytes.', end=" ")
-
-    os.remove('ex_12.txt')
-    selection()
-
-
-# Write a Python program to convert JSON data to a Python object.
-def ex13():
-    with open('sample2.json') as myfile:
-        lst = []
-        for i in myfile:
-            lst.append(i)
-        print('Python object type:\n', type(lst))
-    selection()
-
-
-# Write a Python program to convert Python object to JSON data.
-def ex14():
-    import json
-    py_obj = '{"hello_str": "Hey! I am a JSON string"}'
-    js_obj = json.dumps(py_obj)
-    print(js_obj)
-
-    selection()
-
-
-# Write a Python program to convert Python objects into JSON strings. Print all the values
-def ex15(wordList):
-    from collections import Counter
-    counts = Counter(wordList)
-    counts = dict(counts)
-    return counts
-    cntword(wordList)
-    selection()
-
 # Main menu function
 def menu():
     items = {}
@@ -294,7 +205,8 @@ def menu():
 
     for i in range(3, 0, -1):
         try:
-            select = input("\nWhich exercise would you like to run? Select (1-15) or press 'e' to exit: ")
+            select = input("\nWhich exercise would you like to run? Select (1-9) or press 'e' to exit: ")
+
             if select == 'e':
                 print('Thank You!')
                 sys.exit()
@@ -306,6 +218,7 @@ def menu():
                     continue
                 else:
                     print("You're out of attempts. Come back later.")
+
             sys.exit()
 
         except Exception as Error:
